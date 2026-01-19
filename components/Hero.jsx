@@ -8,7 +8,7 @@ export default function Hero() {
 	return (
 		<section
 			id="home"
-			className="relative w-full min-h-screen flex flex-col lg:justify-end pb-32 md:pb-48"
+			className="relative w-full min-h-screen flex flex-col lg:justify-center pb-32 md:pb-48"
 		>
 			{/* Background Image Placeholder - Replace url with actual image */}
 			<div
@@ -20,7 +20,7 @@ export default function Hero() {
 				<div className="absolute inset-0 bg-linear-to-b from-white/10 via-transparent to-green-900/40" />
 			</div>
 
-			<div className="max-w-7xl relative z-10 mx-auto px-6 pt-32 text-center text-white">
+			<div className="max-w-7xl relative z-10 mx-auto px-6 pt-16 text-center text-white">
 				<motion.h2
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
@@ -71,7 +71,7 @@ export default function Hero() {
 			</div>
 
 			{/* Overlapping Cards */}
-			<div className="md:absolute bottom-10 md:-bottom-20 left-0 right-0 z-20 max-w-7xl mx-auto px-6 pt-10 md:0">
+			<div className="md:absolute bottom-10 md:bottom-10 left-0 right-0 z-20 max-w-7xl mx-auto px-6 pt-10 md:0">
 				<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 					{HERO_DATA.cards.map((card, idx) => {
 						const Icon = card.icon;
@@ -82,31 +82,25 @@ export default function Hero() {
 								whileInView={{ opacity: 1, y: 0 }}
 								viewport={{ once: true }}
 								transition={{ duration: 0.5, delay: 0.6 + idx * 0.1 }}
-								className="bg-white rounded-2xl p-6 shadow-xl border border-gray-100 hover:shadow-2xl transition-shadow flex md:flex-col items-center md:items-start gap-4"
+								className="bg-white rounded-2xl p-6 shadow-xl border border-gray-100 hover:shadow-2xl transition-shadow flex flex-col gap-4"
 							>
-								<div
-									className={cn(
-										"p-3 rounded-xl",
-										idx === 1
-											? "bg-green-100 text-green-600"
-											: "bg-green-50 text-green-600",
-									)}
-								>
-									<Icon className="w-8 h-8" />
-								</div>
-								<div className="block md:hidden">
-									<h3 className="text-xl font-bold text-gray-900 mb-2">
+								<div className="flex items-center gap-4">
+									<div
+										className={cn(
+											"p-2 rounded-xl",
+											"bg-green-100 text-green-600",
+										)}
+									>
+										<Icon className="w-6 h-6" />
+									</div>
+									<h3 className="text-xl font-bold text-gray-900">
 										{card.title}
 									</h3>
 								</div>
-								<div className="hidden md:block">
-									<h3 className="text-xl font-bold text-gray-900 mb-2">
-										{card.title}
-									</h3>
-									<p className="text-gray-600 leading-relaxed">
-										{card.description}
-									</p>
-								</div>
+
+								<p className="text-gray-600 leading-relaxed hidden md:block">
+									{card.description}
+								</p>
 							</motion.div>
 						);
 					})}
