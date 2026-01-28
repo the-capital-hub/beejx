@@ -151,8 +151,18 @@ export default function Footer() {
 				</div>
 
 				{/* Bottom Bar */}
-				<div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-green-100/60">
+				{/* <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-green-100/60">
 					<div>{FOOTER_LINKS_DATA.copyright}</div>
+					<div>{FOOTER_LINKS_DATA.poweredBy}</div>
+				</div> */}
+				<div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-green-100/60">
+					<div className="text-center md:text-left">
+						{FOOTER_LINKS_DATA.copyright}
+						<div className="text-xs mt-1">
+							Co-powered by SREEDA AGRONOMICS PRIVATE LIMITED
+						</div>
+					</div>
+
 					<div>{FOOTER_LINKS_DATA.poweredBy}</div>
 				</div>
 			</div>
